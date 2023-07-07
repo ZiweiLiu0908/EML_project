@@ -1,6 +1,4 @@
-from sklearn import datasets
-
-from model import Model
+from model_0 import Model
 import numpy as np
 import os
 import torch
@@ -9,6 +7,7 @@ from torch.nn import CrossEntropyLoss
 from torch.optim import SGD
 from torch.utils.data import DataLoader
 from torchvision.transforms import ToTensor
+from brevitas.export import export_onnx_qcdq
 
 
 if __name__ == '__main__':
@@ -48,13 +47,10 @@ if __name__ == '__main__':
             all_sample_num += current_correct_num.shape[0]
         acc = all_correct_num / all_sample_num
         print('accuracy: {:.3f}'.format(acc), flush=True)
-        if not os.path.isdir("models"):
-            os.mkdir("models")
+        if not os.path.isdir("models_0"):
+            os.mkdir("models_0")
         ##########################################################
-        # traced_pt_lenet = StdQOpONNXManager.export(model, input_shape=(256, 1, 28, 28))
-
-
-        torch.save(model.state_dict(), 'models/mnist_{:.3f}.pkl'.format(acc))
+        export_onnx_qcdq(model, torch.randn(256, 1, 28, 28), export_path='models_0/mnist_{:.3f}.onnx'.format(acc))
         ##########################################################
         prev_acc = acc
     print("Model finished training")

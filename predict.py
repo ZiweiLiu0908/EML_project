@@ -2,7 +2,7 @@ import torch
 import torchvision.transforms as transforms
 from PIL import Image
 
-from model import Model
+from model_0 import Model
 
 
 def main():
@@ -15,7 +15,7 @@ def main():
                '4', '5', '6', '7', '8', '9')
 
     net = Model()
-    net.load_state_dict(torch.load('models/mnist_0.979.pkl'))
+    net.load_state_dict(torch.load('models_0/mnist_0.884.onnx'))
 
     im = Image.open('1.jpg')
     im = transform(im)  # [C, H, W]

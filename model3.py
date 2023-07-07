@@ -4,9 +4,12 @@ import brevitas.nn as qnn
 from brevitas.quant import Int8Bias as BiasQuant
 
 
-class Model(Module):
+class QuantWeightActBiasLeNet(Module):
+    """
+        Weights, activations, biases quantization
+    """
     def __init__(self):
-        super(Model, self).__init__()
+        super(QuantWeightActBiasLeNet, self).__init__()
         self.quant_inp = qnn.QuantIdentity(bit_width=4, return_quant_tensor=True)
 
         self.conv1 = qnn.QuantConv2d(1, 6, 5, weight_bit_width=3, bias_quant=BiasQuant, return_quant_tensor=True)
