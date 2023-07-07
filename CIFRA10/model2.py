@@ -13,11 +13,11 @@ class QuantWeightActLeNet(Module):
     def __init__(self):
         super(QuantWeightActLeNet, self).__init__()
         self.quant_inp = qnn.QuantIdentity(bit_width=4)
-        self.conv1 = qnn.QuantConv2d(1, 6, 5, bias=True, weight_bit_width=4)
+        self.conv1 = qnn.QuantConv2d(3, 6, 5, bias=True, weight_bit_width=4)
         self.relu1 = qnn.QuantReLU(bit_width=4)
         self.conv2 = qnn.QuantConv2d(6, 16, 5, bias=True, weight_bit_width=4)
         self.relu2 = qnn.QuantReLU(bit_width=3)
-        self.fc1 = qnn.QuantLinear(256, 120, bias=True, weight_bit_width=4)
+        self.fc1 = qnn.QuantLinear(16 * 5 * 5, 120, bias=True, weight_bit_width=4)
         self.relu3 = qnn.QuantReLU(bit_width=4)
         self.fc2 = qnn.QuantLinear(120, 84, bias=True, weight_bit_width=4)
         self.relu4 = qnn.QuantReLU(bit_width=4)
