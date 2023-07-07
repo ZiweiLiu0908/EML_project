@@ -15,13 +15,13 @@ def main():
 
 
     train_set = torchvision.datasets.CIFAR10(root='./data', train=True,
-                                             download=False, transform=transform)
+                                             download=True, transform=transform)
     train_loader = torch.utils.data.DataLoader(train_set, batch_size=36,
                                                shuffle=True, num_workers=0)
 
 
     val_set = torchvision.datasets.CIFAR10(root='./data', train=False,
-                                           download=False, transform=transform)
+                                           download=True, transform=transform)
     val_loader = torch.utils.data.DataLoader(val_set, batch_size=5000,
                                              shuffle=False, num_workers=0)
     val_data_iter = iter(val_loader)
