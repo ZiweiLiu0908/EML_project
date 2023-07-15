@@ -1,0 +1,6 @@
+test model:onnx/model2_2_2.onnx    result:run time[0.030820846557617188],accuracy[0.5277777777777778]
+test model:onnx/model2_2_2.onnx    result:run time[0.009120941162109375],accuracy[0.5277777777777778]
+test model:onnx/model1_{2}_{}.onnx    result:run time[0.017258882522583008],accuracy[0.4722222222222222]
+test model:onnx/model1_{2}_{}.onnx    result:run time[0.026849985122680664],accuracy[0.4722222222222222]
+test model:onnx/model2_2_2.onnx    result:run time[0.013883113861083984],accuracy[0.4166666666666667]
+test model:onnx/model3_2_2.onnx    result:run time[0.0289309024810791],accuracy[0.5]

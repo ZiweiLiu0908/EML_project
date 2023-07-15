@@ -3,7 +3,7 @@ import torchvision
 import torch.nn as nn
 from brevitas.export import export_onnx_qcdq
 
-from model3 import QuantWeightActBiasLeNet
+from model4 import QuantWeightActBiasLeNet
 import torch.optim as optim
 import torchvision.transforms as transforms
 
